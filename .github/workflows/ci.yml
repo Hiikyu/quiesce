@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  code-quality: write
+  security-events: write
 
 jobs:
   build:
