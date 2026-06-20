@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies (macOS)
       if: runner.os == 'macOS'
       run: |
-        brew install ninja
+        brew install ninja autoconf autoconf-archive automake libtool
         xcode-select --install || true
 
     - name: Set up vcpkg
