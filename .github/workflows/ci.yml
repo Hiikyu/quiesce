@@ -36,7 +36,7 @@ jobs:
       uses: lukka/run-vcpkg@v11
       with:
         vcpkgDirectory: ${{ runner.temp }}/vcpkg
-        vcpkgGitCommitId: 'b8a8182035'
+        vcpkgGitCommitId: 'master'
 
     - name: Configure CMake (Ubuntu with GCC)
       if: runner.os == 'Linux' && matrix.compiler == 'gcc'
