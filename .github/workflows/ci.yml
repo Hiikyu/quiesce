@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+  code-quality: write
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -81,6 +85,8 @@ jobs:
 
     - name: Upload coverage report
       if: runner.os == 'Linux'
-      uses: github/codeql-action/upload-coverage@v2
+      uses: actions/upload-code-coverage@v1
       with:
-        path: build/coverage.xml
+        file: build/coverage.xml
+        language: C++
+        label: code-coverage/cpp
