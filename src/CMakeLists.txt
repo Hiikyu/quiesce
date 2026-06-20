@@ -1,4 +1,5 @@
-add_library(libquiesce STATIC "maths.cpp")
+file(GLOB libquiesce_sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/*.cxx")
+add_library(libquiesce STATIC ${libquiesce_sources})
 
 # Associates headers explicitly and manages propagation automatically
 target_sources(libquiesce 
@@ -23,9 +24,11 @@ if (QUIESCE_ENABLE_TESTS)
 
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
+    file(GLOB test_sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/*_test.cc")
+
     add_executable(
         maths_test
-        maths_test.cc
+        ${test_sources}
     )
     target_link_libraries(
         maths_test
