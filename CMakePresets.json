@@ -17,7 +17,28 @@
             "displayName": "Configure preset using toolchain file for debugging",
             "inherits": "vcpkg",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "QUIESCE_ENABLE_TESTS": "ON"
+            }
+        },
+        {
+            "name": "tsan",
+            "displayName": "Configure preset with ThreadSanitizer",
+            "inherits": "vcpkg",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "QUIESCE_ENABLE_TESTS": "ON",
+                "QUIESCE_TESTS_USE_TSAN": "ON"
+            }
+        },
+        {
+            "name": "asan",
+            "displayName": "Configure preset with AddressSanitizer + UBSan",
+            "inherits": "vcpkg",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "QUIESCE_ENABLE_TESTS": "ON",
+                "QUIESCE_TESTS_USE_ASAN": "ON"
             }
         }
     ]
